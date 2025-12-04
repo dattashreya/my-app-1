@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="titleFlagOff" class="container">
   <h2>Showing how does filter work?</h2>
   <label for="">Input field &nbsp;</label>
   <input type="text" [(ngModel)]="filterText" (ngModelChange)="onFilterChange()" placeholder="Filter by name or ID" />
@@ -13,3 +13,14 @@
     <h4>Id and name don't exist</h4>
   </ng-template>
 </div>
+
+
+<product-list 
+         (productAdded)="addProductToCart($event)" 
+         [products]="productList">
+</product-list>
+<shopping-cart [products]="cartProductList" (productRemoved)="removeProduct($event)"></shopping-cart>
+
+
+
+<router-outlet></router-outlet>
