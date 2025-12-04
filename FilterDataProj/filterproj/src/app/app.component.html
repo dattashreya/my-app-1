@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>Showing how does filter work?</h2>
+  <label for="">Input field &nbsp;</label>
+  <input type="text" [(ngModel)]="filterText" (ngModelChange)="onFilterChange()" placeholder="Filter by name or ID" />
+  <ng-container *ngIf="filteredItems.length > 0 ; else noResult">
+    <ul>
+      <li *ngFor="let item of filteredItems">
+        ID: {{ item.id }}, Name: {{ item.name }}, UserName: {{ item.username }}
+      </li>
+    </ul>
+  </ng-container>
+  <ng-template #noResult>
+    <h4>Id and name don't exist</h4>
+  </ng-template>
+</div>
